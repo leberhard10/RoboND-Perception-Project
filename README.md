@@ -1,4 +1,7 @@
-[![Udacity - Robotics NanoDegree Program](https://s3-us-west-1.amazonaws.com/udacity-robotics/Extra+Images/RoboND_flag.png)](https://www.udacity.com/robotics)
+## Disclaimer
+This project is a homework assignment submitted by Laura Eberhard and forked from the Udacity RoboND-Perception repository. As part of the Udacity Honor code (https://www.udacity.com/legal/community-guidelines), this project cannot be submitted as an original work by other students.
+[![Udacity - Robotics NanoDegree Program]
+
 # 3D Perception
 Before starting any work on this project, please complete all steps for [Exercise 1, 2 and 3](https://github.com/udacity/RoboND-Perception-Exercises). At the end of Exercise-3 you have a pipeline that can identify points that belong to a specific object.
 
