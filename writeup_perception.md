@@ -42,13 +42,17 @@ Input PCL cloud.
 
 ![pcl_cloud](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pcl_cloud.PNG)
 
-Noise filter applied immediatly applied after ros to pcl conversion with the default parameters.
+Noise filter applied immediatly applied after ros to pcl conversion with the exercise 1 default parameters.
 
 ![noise_filter_d](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/noise_filter_defaults.PNG)
 
 Updated the mean points and the threshold for a cleaner image.
 
 ![noise_filter_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/noise_filter_1.PNG)
+
+Apply voxel grid downsampling with the exercise 1 default parameters.
+
+![vox_filter_d](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/vox_filter_defaults.PNG)
 
 
 
