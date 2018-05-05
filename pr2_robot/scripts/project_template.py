@@ -53,51 +53,43 @@ def pcl_callback(pcl_msg):
 
 # TODO: Convert ROS msg to PCL data
     pcl_cloud = ros_to_pcl(pcl_msg)    
-    filename = 'pcl_cloud.pcd'
-    pcl.save(pcl_cloud, filename)
 
     # TODO: Voxel Grid Downsampling
     vox_grid_filter = pcl_cloud.make_voxel_grid_filter()
-    LEAF_SIZE = 0.0069
+    LEAF_SIZE = 0.004
     vox_grid_filter.set_leaf_size(LEAF_SIZE, LEAF_SIZE, LEAF_SIZE)
-    cloud_filtered = vox_grid_filter.filter()
-    filename = 'voxel_downsampled.pcd'
-    pcl.save(cloud_filtered, filename)
+    vox_cloud_filtered = vox_grid_filter.filter()
 
     #Filter out noisy data
-    outlier_filter = cloud_filtered.make_statistical_outlier_filter()
+    outlier_filter = vox_cloud_filtered.make_statistical_outlier_filter()
     outlier_filter.set_mean_k(50)
-    x = 1.0
+    x = 0.01
     outlier_filter.set_std_dev_mul_thresh(x)
     cloud_filtered = outlier_filter.filter()
-    filename = 'noise_filter.pcd'
-    pcl.save(cloud_filtered, filename)
 
     # TODO: PassThrough Filter
     passthrough = cloud_filtered.make_passthrough_filter()
     filter_axis = 'z'
     passthrough.set_filter_field_name(filter_axis)
-    axis_min = 0.70
+    axis_min = 0.64
     axis_max = 1.0
     passthrough.set_filter_limits(axis_min, axis_max)
     cloud_filtered = passthrough.filter()
-    filename = 'pass_through_filtered.pcd'
-    pcl.save(cloud_filtered, filename)
 
 
     # TODO: RANSAC Plane Segmentation
     seg = cloud_filtered.make_segmenter()
     seg.set_model_type(pcl.SACMODEL_PLANE)
     seg.set_method_type(pcl.SAC_RANSAC)
-    max_distance = 0.01
+    max_distance = 0.001
     seg.set_distance_threshold(max_distance)
     inliers, coefficients = seg.segment()
 
 
     # TODO: Extract inliers and outliers
     cloud_objects = cloud_filtered.extract(inliers, negative=True)
-    filename = 'extracted_inliers.pcd'
-    pcl.save(cloud_objects, filename)
+#    filename = 'extracted_inliers.pcd'
+#    pcl.save(cloud_objects, filename)
     cloud_table = cloud_filtered.extract(inliers, negative=False)
 
     # TODO: Euclidean Clustering
@@ -135,7 +127,7 @@ def pcl_callback(pcl_msg):
     cluster_cloud.from_list(color_cluster_point_list)
 
     # TODO: Convert PCL data to ROS messages
-    ros_cloud_objects =  pcl_to_ros(cloud_objects)
+    ros_cloud_objects =  pcl_to_ros(pcl_cloud)
     ros_cloud_table = pcl_to_ros(cloud_table)
     ros_cluster_cloud = pcl_to_ros(cluster_cloud)
 
