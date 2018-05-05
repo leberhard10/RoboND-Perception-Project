@@ -81,7 +81,7 @@ def pcl_callback(pcl_msg):
     seg = cloud_filtered.make_segmenter()
     seg.set_model_type(pcl.SACMODEL_PLANE)
     seg.set_method_type(pcl.SAC_RANSAC)
-    max_distance = 0.01
+    max_distance = 0.015
     seg.set_distance_threshold(max_distance)
     inliers, coefficients = seg.segment()
 
