@@ -36,47 +36,22 @@ This file will cover the rubric criteria and how each item was addressed.
 ### Exercise 1, 2 and 3 pipeline implemented
 #### 1. Complete Exercise 1 steps. Pipeline for filtering and RANSAC plane fitting implemented.
 
-The work done in Exercise 1 was copied over to the project_template file, and pcd files were saved to verify the variables were valid with the new data. In one terminal the command ```$ roslaunch pr2_robot pick_place_project.launch``` was run in ~/catkin_ws and in another terminal, ```pyon project_template.py ``` was called within the scripts folder.
+The work done in Exercise 1 was copied over to the project_template file, and pcd files were saved to verify the variables were valid with the new data. In one terminal the command ```$ roslaunch pr2_robot pick_place_project.launch``` was run in ~/catkin_ws and in another terminal, ```pyon project_template.py ``` was called within the scripts folder. At fist pcd files were used to verify the exercise one values, but by exercise 2 it was realized these do not provide the right view. Instead, the data was routed to the point cloud topics to get the camera view of the robot. The assesments are starting with commit 1947993d67d159f1c2e7d2a7b9d5434587c673de "Reroute the raw pcl_cloud to /pclobjects".
 
 Input PCL cloud.
 
 ![pcl_cloud](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pcl_cloud.PNG)
 
-Downsampleing Voxel Grid added.
 
-![voxel_downsample](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/voxel_downsampled.PNG)
-
-Pass through filter with the parameters from Exercise 1.
-
-![filter_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pass_throughfilter_1.PNG)
-
-Pass through with the new axis_min and axis_max values for the pass through filter.
-
-![filter_2](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pass_throughfilter_2.PNG)
-
-The RANSAC filter with the exercise 1 values removed everything exept the biscuits.
-
-![RANSAC_inliers_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/RANSAC_inliers_1.PNG)
-
-The noise filter had more success capturing more of the objects.
-
-![noise_filter_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/noise_filter_1.PNG)
-
-
-After double checking the steps to apply the noise filter. It was moved to filter out noise before applying the passthrough filter.
-
-![noise_filter_2](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/noise_filter_2.PNG)
-
-The new pass through point cloud was significantly improved.
-
-![filter_3](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pass_throughfilter_3.PNG)
-
-And while there is still room for improvement with the RANSAC filter, it is also improved with the noise filter at the beginning of the function.
-
-![RANSAC_2](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/RANSAC_inliers_2.PNG)
 
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
+
+Same as excercise 1, the default values from exercise 2 and the changes to exercise 1 only captured a portion of the objects.
+
+![pcl_object_1]()
+
+
 
 #### 2. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
 Here is an example of how to include an image in your writeup.
