@@ -64,6 +64,15 @@ def pcl_callback(pcl_msg):
     filename = 'voxel_downsampled.pcd'
     pcl.save(cloud_filtered, filename)
 
+    #Filter out noisy data
+    outlier_filter = cloud_filtered.make_statistical_outlier_filter()
+    outlier_filter.set_mean_k(50)
+    x = 1.0
+    outlier_filter.set_std_dev_mul_thresh(x)
+    cloud_filtered = outlier_filter.filter()
+    filename = 'noise_filter.pcd'
+    pcl.save(cloud_filtered, filename)
+
     # TODO: PassThrough Filter
     passthrough = cloud_filtered.make_passthrough_filter()
     filter_axis = 'z'
@@ -90,21 +99,6 @@ def pcl_callback(pcl_msg):
     filename = 'extracted_inliers.pcd'
     pcl.save(cloud_objects, filename)
     cloud_table = cloud_filtered.extract(inliers, negative=False)
-    filename = 'extracted_outliers.pcd'
-    pcl.save(cloud_table, filename)
-
-    #Filter out noisy data
-    outlier_filter = cloud_filtered.make_statistical_outlier_filter()
-    outlier_filter.set_mean_k(50)
-    x = 1.0
-    outlier_filter.set_std_dev_mul_thresh(x)
-    cloud_filtered = outlier_filter.filter()
-    extracted_inliers = cloud_filtered.extract(inliers, negative=False)
-    filename = 'filtered_inliers.pcd'
-    pcl.save(extracted_inliers, filename)
-    extracted_outliers = cloud_filtered.extract(inliers, negative=True)
-    filename = 'extracted_filtered_outliers.pcd'
-    pcl.save(extracted_outliers, filename)
 
     # TODO: Euclidean Clustering
     white_cloud = XYZRGB_to_XYZ(cloud_objects)
