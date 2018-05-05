@@ -44,7 +44,11 @@ Input PCL cloud.
 
 Noise filter applied immediatly applied after ros to pcl conversion with the default parameters.
 
-![noise_filter1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pcl_cloud.PNG)
+![noise_filter_d](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/noise_filter_defaults.PNG)
+
+Updated the mean points and the threshold for a cleaner image.
+
+![noise_filter_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/noise_filter_1.PNG)
 
 
 
