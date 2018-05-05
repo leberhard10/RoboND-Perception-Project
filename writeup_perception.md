@@ -66,6 +66,10 @@ Applied exercise 1 default parameters to the RANSAC filter. It looks like some o
 
 ![RANSAC_filter_d](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/RANSAC_filter_defaults.PNG)
 
+Experimenting with the min xis for the pass through would filter out the table, so the original value was kept and the focus moved to the RANSAC max distance. Decreasing the value captured more of the table and increasing the value started to filter out the objects.
+
+![RANSAC_filter_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/RANSAC_filter_1.PNG)
+
 
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
