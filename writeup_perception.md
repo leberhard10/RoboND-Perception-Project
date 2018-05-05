@@ -54,7 +54,7 @@ Applied voxel grid downsampling with the exercise 1 default parameters.
 
 ![vox_filter_d](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/vox_filter_defaults.PNG)
 
-Updated the leaf value for a cleaner image.
+Updated the leaf value for a cleaner image. Larger values resulted in a fuzzier image, while smaller values provided less noise in the resulting cloud data.
 
 ![vox_filter_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/vox_filter_1.PNG)
 
@@ -70,13 +70,11 @@ Experimenting with the min xis for the pass through would filter out the table, 
 
 ![RANSAC_filter_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/RANSAC_filter_1.PNG)
 
-
-
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 
-Same as excercise 1, the default values from exercise 2 and the changes to exercise 1 only captured a portion of the objects.
+On the first try when using PCL Vierwer, only half of the objects were displayed in the pcl cluster. Redoing the exercise one componenst using RViz, the values obtained from excercise 2 successfully recognised object clusters.
 
-![pcl_object_1]()
+![pcl_object_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pcl_cluster_1.PNG)
 
 
 
