@@ -63,7 +63,7 @@ def pcl_callback(pcl_msg):
 
     # TODO: Voxel Grid Downsampling
     vox_grid_filter = pcl_cloud.make_voxel_grid_filter()
-    LEAF_SIZE = 0.004
+    LEAF_SIZE = 0.01
     vox_grid_filter.set_leaf_size(LEAF_SIZE, LEAF_SIZE, LEAF_SIZE)
     vox_cloud_filtered = vox_grid_filter.filter()
 
@@ -128,12 +128,14 @@ def pcl_callback(pcl_msg):
 
     # TODO: Convert PCL data to ROS messages
     ros_pcl_cloud =  pcl_to_ros(pcl_cloud)
+    ros_vox_cloud =  pcl_to_ros(vox_cloud_filtered)
     ros_cloud_objects =  pcl_to_ros(cloud_objects)
     ros_cloud_table = pcl_to_ros(cloud_table)
     ros_cluster_cloud = pcl_to_ros(cluster_cloud)
 
     # TODO: Publish ROS messages
     pcl_cloud_pub.publish(ros_pcl_cloud)
+    pcl_vox_pub.publish(ros_vox_cloud)
     pcl_objects_pub.publish(ros_cloud_objects)
     pcl_table_pub.publish(ros_cloud_table)
     pcl_cluster_pub.publish(ros_cluster_cloud)
@@ -212,6 +214,7 @@ if __name__ == '__main__':
 
     # TODO: Create Publishers
     pcl_cloud_pub = rospy.Publisher("/pcl_cloud", PointCloud2, queue_size=1)
+    pcl_vox_pub = rospy.Publisher("/pcl_vox", PointCloud2, queue_size=1)
     pcl_objects_pub = rospy.Publisher("/pcl_objects", PointCloud2, queue_size=1)
     pcl_table_pub = rospy.Publisher("/pcl_table", PointCloud2, queue_size=1)
     pcl_cluster_pub = rospy.Publisher("/pcl_cluster", PointCloud2, queue_size=1)
