@@ -54,7 +54,9 @@ Apply voxel grid downsampling with the exercise 1 default parameters.
 
 ![vox_filter_d](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/vox_filter_defaults.PNG)
 
+Updated the leaf value for a cleaner image.
 
+![vox_filter_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/vox_filter_1.PNG)
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 
