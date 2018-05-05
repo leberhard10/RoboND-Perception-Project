@@ -68,8 +68,8 @@ def pcl_callback(pcl_msg):
     passthrough = cloud_filtered.make_passthrough_filter()
     filter_axis = 'z'
     passthrough.set_filter_field_name(filter_axis)
-    axis_min = 0.77
-    axis_max = 1.1
+    axis_min = 0.70
+    axis_max = 1.0
     passthrough.set_filter_limits(axis_min, axis_max)
     cloud_filtered = passthrough.filter()
     filename = 'pass_through_filtered.pcd'
@@ -88,10 +88,10 @@ def pcl_callback(pcl_msg):
     # TODO: Extract inliers and outliers
     cloud_objects = cloud_filtered.extract(inliers, negative=True)
     filename = 'extracted_inliers.pcd'
-    pcl.save(extracted_inliers, filename)
+    pcl.save(cloud_objects, filename)
     cloud_table = cloud_filtered.extract(inliers, negative=False)
     filename = 'extracted_outliers.pcd'
-    pcl.save(extracted_outliers, filename)
+    pcl.save(cloud_table, filename)
 
     #Filter out noisy data
     outlier_filter = cloud_filtered.make_statistical_outlier_filter()
