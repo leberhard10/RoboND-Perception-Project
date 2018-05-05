@@ -38,6 +38,19 @@ This file will cover the rubric criteria and how each item was addressed.
 
 The work done in Exercise 1 was copied over to the project_template file, and pcd files were saved to verify the variables were valid with the new data. In one terminal the command ```$ roslaunch pr2_robot pick_place_project.launch``` was run in ~/catkin_ws and in another terminal, ```pyon project_template.py ``` was called within the scripts folder.
 
+Input PCL cloud.
+![pcl_cloud](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pcl_cloud.PNG)
+
+Downsampleing Voxel Grid added.
+![voxel_downsample](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/voxel_downsampled.PNG)
+
+Pass through filter with the parameters from Exercise 1.
+![filter_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pass_throughfilter_1.PNG)
+
+Pass through with the new axis_min and axis_max values for the pass through filter.
+![filter_2](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pass_throughfilter_2.PNG)
+
+
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 
