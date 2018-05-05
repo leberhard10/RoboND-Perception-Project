@@ -62,6 +62,10 @@ Applied pass through filter with the exercise 1 default parameters. It looks lik
 
 ![pas_filter_d](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pas_filter_defaults.PNG)
 
+Applied exercise 1 default parameters to the RANSAC filter. It looks like some of the table is captured with the default axis min and max from the passthrough filter.
+
+![RANSAC_filter_d](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/RANSAC_filter_defaults.PNG)
+
 
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
