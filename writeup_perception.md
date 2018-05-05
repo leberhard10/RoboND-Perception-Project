@@ -78,6 +78,12 @@ And while there is still room for improvement with the RANSAC filter, it is also
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 
+Same as excercise 1, the default values from exercise 2 and the changes to exercise 1 only captured a portion of the objects.
+
+![pcl_object_1]()
+
+
+
 #### 2. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
 Here is an example of how to include an image in your writeup.
 
