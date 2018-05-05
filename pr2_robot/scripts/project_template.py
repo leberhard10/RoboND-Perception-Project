@@ -52,7 +52,14 @@ def pcl_callback(pcl_msg):
 # Exercise-2 TODOs:
 
 # TODO: Convert ROS msg to PCL data
-    pcl_cloud = ros_to_pcl(pcl_msg)    
+    pcl_cloud = ros_to_pcl(pcl_msg)
+
+    #Filter out noisy data
+    outlier_filter = pcl_cloud.make_statistical_outlier_filter()
+    outlier_filter.set_mean_k(50)
+    x = 0.01
+    outlier_filter.set_std_dev_mul_thresh(x)
+    pcl_cloud = outlier_filter.filter()    
 
     # TODO: Voxel Grid Downsampling
     vox_grid_filter = pcl_cloud.make_voxel_grid_filter()
@@ -60,15 +67,8 @@ def pcl_callback(pcl_msg):
     vox_grid_filter.set_leaf_size(LEAF_SIZE, LEAF_SIZE, LEAF_SIZE)
     vox_cloud_filtered = vox_grid_filter.filter()
 
-    #Filter out noisy data
-    outlier_filter = vox_cloud_filtered.make_statistical_outlier_filter()
-    outlier_filter.set_mean_k(50)
-    x = 0.01
-    outlier_filter.set_std_dev_mul_thresh(x)
-    cloud_filtered = outlier_filter.filter()
-
     # TODO: PassThrough Filter
-    passthrough = cloud_filtered.make_passthrough_filter()
+    passthrough = vox_cloud_filtered.make_passthrough_filter()
     filter_axis = 'z'
     passthrough.set_filter_field_name(filter_axis)
     axis_min = 0.64
