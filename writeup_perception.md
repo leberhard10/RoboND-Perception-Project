@@ -50,13 +50,17 @@ Updated the mean points and the threshold for a cleaner image.
 
 ![noise_filter_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/noise_filter_1.PNG)
 
-Apply voxel grid downsampling with the exercise 1 default parameters.
+Applied voxel grid downsampling with the exercise 1 default parameters.
 
 ![vox_filter_d](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/vox_filter_defaults.PNG)
 
 Updated the leaf value for a cleaner image.
 
 ![vox_filter_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/vox_filter_1.PNG)
+
+Applied pass through filter with the exercise 1 default parameters.
+
+![pas_filter_d](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pas_filter_defaults.PNG)
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 
