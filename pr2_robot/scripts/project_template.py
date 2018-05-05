@@ -56,8 +56,8 @@ def pcl_callback(pcl_msg):
 
     #Filter out noisy data
     outlier_filter = pcl_cloud.make_statistical_outlier_filter()
-    outlier_filter.set_mean_k(50)
-    x = 0.01
+    outlier_filter.set_mean_k(30)
+    x = 0.1
     outlier_filter.set_std_dev_mul_thresh(x)
     pcl_cloud = outlier_filter.filter()    
 
@@ -127,11 +127,13 @@ def pcl_callback(pcl_msg):
     cluster_cloud.from_list(color_cluster_point_list)
 
     # TODO: Convert PCL data to ROS messages
-    ros_cloud_objects =  pcl_to_ros(pcl_cloud)
+    ros_pcl_cloud =  pcl_to_ros(pcl_cloud)
+    ros_cloud_objects =  pcl_to_ros(cloud_objects)
     ros_cloud_table = pcl_to_ros(cloud_table)
     ros_cluster_cloud = pcl_to_ros(cluster_cloud)
 
     # TODO: Publish ROS messages
+    pcl_cloud_pub.publish(ros_pcl_cloud)
     pcl_objects_pub.publish(ros_cloud_objects)
     pcl_table_pub.publish(ros_cloud_table)
     pcl_cluster_pub.publish(ros_cluster_cloud)
@@ -209,6 +211,7 @@ if __name__ == '__main__':
 
 
     # TODO: Create Publishers
+    pcl_cloud_pub = rospy.Publisher("/pcl_cloud", PointCloud2, queue_size=1)
     pcl_objects_pub = rospy.Publisher("/pcl_objects", PointCloud2, queue_size=1)
     pcl_table_pub = rospy.Publisher("/pcl_table", PointCloud2, queue_size=1)
     pcl_cluster_pub = rospy.Publisher("/pcl_cluster", PointCloud2, queue_size=1)
