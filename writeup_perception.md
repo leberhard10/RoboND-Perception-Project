@@ -58,9 +58,11 @@ Updated the leaf value for a cleaner image.
 
 ![vox_filter_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/vox_filter_1.PNG)
 
-Applied pass through filter with the exercise 1 default parameters.
+Applied pass through filter with the exercise 1 default parameters. It looks like the default axis min and max from exercise 1 filter the correct region of interest.
 
 ![pas_filter_d](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pas_filter_defaults.PNG)
+
+
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 
