@@ -56,24 +56,24 @@ Pass through with the new axis_min and axis_max values for the pass through filt
 
 The RANSAC filter with the exercise 1 values removed everything exept the biscuits.
 
-![RANSAC_inliers_1]()
+![RANSAC_inliers_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/RANSAC_inliers_1.PNG)
 
 The noise filter had more success capturing more of the objects.
 
-![noise_filter_1]()
+![noise_filter_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/noise_filter_1.PNG)
 
 
 After double checking the steps to apply the noise filter. It was moved to filter out noise before applying the passthrough filter.
 
-![noise_filter_2]()
+![noise_filter_2](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/noise_filter_2.PNG)
 
 The new pass through point cloud was significantly improved.
 
-![filter_3]()
+![filter_3](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/pass_throughfilter_3.PNG)
 
 And while there is still room for improvement with the RANSAC filter, it is also improved with the noise filter at the beginning of the function.
 
-![RANSAC_2]()
+![RANSAC_2](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/RANSAC_inliers_2.PNG)
 
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
