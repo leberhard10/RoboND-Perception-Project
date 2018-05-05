@@ -79,9 +79,12 @@ On the first try when using PCL Vierwer, only half of the objects were displayed
 
 
 #### 2. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
-Here is an example of how to include an image in your writeup.
 
-![demo-1](https://user-images.githubusercontent.com/20687560/28748231-46b5b912-7467-11e7-8778-3095172b7b19.png)
+To start porting over Exercise 3 code, the training.launch file was copied over from the Exercise 3 launch folder into the pr2_robot launch folder and capture_features.py was also copied over into the scripts folder.
+
+The first run resulted in soap being recognized as soap 2 over half the time. The current training values also resulted in an accuracy score of 0.6111
+
+![accuracy_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/classifier_accuracy_1.PNG)
 
 ### Pick and Place Setup
 
