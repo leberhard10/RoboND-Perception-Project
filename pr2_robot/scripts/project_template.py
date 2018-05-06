@@ -196,6 +196,7 @@ def pcl_callback(pcl_msg):
 def pr2_mover(detected_objects):
 
     # TODO: Initialize variables
+    dict_list = []
     test_scene_num = Int32()
     object_name = String()
     arm_name = String()
@@ -264,6 +265,8 @@ def pr2_mover(detected_objects):
             print "Object group not found: %s"%e
 
         # TODO: Create a list of dictionaries (made with make_yaml_dict()) for later output to yaml format
+        yaml_dict = make_yaml_dict(test_scene_num, arm_name, object_name, pick_pose, place_pose)
+        dict_list.append(yaml_dict)
 
         # Wait for 'pick_place_routine' service to come up
         rospy.wait_for_service('pick_place_routine')
@@ -280,6 +283,7 @@ def pr2_mover(detected_objects):
             print "Service call failed: %s"%e
 
     # TODO: Output your request parameters into output yaml file
+    send_to_yaml("output_"+test_scene_num+".yaml", dict_list)
 
 
 
