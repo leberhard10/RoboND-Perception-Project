@@ -103,8 +103,9 @@ Despite this, the biscuits are still labeld as soap and the bins are also labele
 
 #### 1. For all three tabletop setups (`test*.world`), perform object recognition, then read in respective pick list (`pick_list_*.yaml`). Next construct the messages that would comprise a valid `PickPlace` request output them to `.yaml` format.
 
-And here's another image! 
-![demo-2](https://user-images.githubusercontent.com/20687560/28748286-9f65680e-7468-11e7-83dc-f1a32380b89c.png)
+Even though biscuits are being detected as soap, the decision ws to keep going with the remaining requirements and fix the object recognition after adding in the yaml file export. On the first test run without runtime errors, soap 2 was accurately detected and grabbed by the correct arm. 
+
+![yaml_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/yaml_output_1.PNG)
 
 Spend some time at the end to discuss your code, what techniques you used, what worked and why, where the implementation might fail and how you might improve it if you were going to pursue this project further.  
 
