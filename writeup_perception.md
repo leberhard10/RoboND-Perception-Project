@@ -86,6 +86,19 @@ The first run resulted in soap being recognized as soap 2 over half the time. Th
 
 ![accuracy_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/classifier_accuracy_1.PNG)
 
+Continuing on to see what the results are, the bins were mistakenly labeled along with every item labeled soap2.
+
+![labels_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_1.PNG)
+
+The number of attempts to gain a valid point cloud appear to help with the accuracy. It was also noticed that running capture_features.py several times without changing the file will also produce different results. It took about 3 runs to get a perfect detection of the three items. 
+
+![accuracy_2](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/classifier_accuracy_2.PNG)
+
+Despite this, the biscuits are still labeld as soap and the bins are also labeled.
+
+![labels_2](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_2.PNG)
+
+
 ### Pick and Place Setup
 
 #### 1. For all three tabletop setups (`test*.world`), perform object recognition, then read in respective pick list (`pick_list_*.yaml`). Next construct the messages that would comprise a valid `PickPlace` request output them to `.yaml` format.
