@@ -205,9 +205,7 @@ def pr2_mover(detected_objects):
 
     # TODO: Get/Read parameters
     object_list_param = rospy.get_param('/object_list') #pick list
-    rospy.loginfo('Pick List parameters: {}'.format(object_list_param))
     dropbox_param = rospy.get_param('/dropbox')
-    rospy.loginfo('Dropbox parameters: {}'.format(dropbox_param))
 
     # TODO: Parse parameters into individual variables
     labels = []
@@ -217,7 +215,6 @@ def pr2_mover(detected_objects):
         points_arr = ros_to_pcl(object.cloud).to_array()
         centroids.append((np.mean(points_arr, axis=0)[:3]).tolist())
         
-    rospy.loginfo('Detected Object List: {}'.format(labels))
 
     # TODO: Rotate PR2 in place to capture side tables for the collision map
 
@@ -225,10 +222,8 @@ def pr2_mover(detected_objects):
     for index in range(0, len(object_list_param)):
 
         test_scene_num.data = 1
-        rospy.loginfo('Test Scene Number: {}'.format(test_scene_num))
         
         object_name.data = object_list_param[index]['name']
-        rospy.loginfo('Object Name: {}'.format(object_name))
 
         # TODO: Get the PointCloud for a given object and obtain it's centroid
         try:
@@ -237,13 +232,11 @@ def pr2_mover(detected_objects):
             pick_pose.position.x = centroid[0]
             pick_pose.position.y = centroid[1]
             pick_pose.position.z = centroid[2]
-            rospy.loginfo('Pick Pose: {}'.format(pick_pose))
         except rospy.ServiceException, e:
             print "Object in pick list not found: %s"%e
             
         try:
             object_group = object_list_param[index]['group']
-            rospy.loginfo('Object Group: {}'.format(object_group))
             box_index = 0
             for param_index in range(0, len(dropbox_param)):
                 dropbox_group = dropbox_param[param_index]['group']
@@ -256,10 +249,8 @@ def pr2_mover(detected_objects):
             place_pose.position.x = position[0]
             place_pose.position.y = position[1]
             place_pose.position.z = position[2]
-            rospy.loginfo('Place Pose: {}'.format(place_pose))
             # TODO: Assign the arm to be used for pick_place
             arm_name.data = dropbox_param[box_index]['name']
-            rospy.loginfo('Arm Name: {}'.format(arm_name))
 
         except rospy.ServiceException, e:
             print "Object group not found: %s"%e
@@ -284,7 +275,6 @@ def pr2_mover(detected_objects):
 
     # TODO: Output your request parameters into output yaml file
     output_filename = "output_{}.yaml".format(test_scene_num.data)
-    rospy.loginfo('Output to: {}'.format(output_filename))
     send_to_yaml(output_filename, dict_list)
 
 

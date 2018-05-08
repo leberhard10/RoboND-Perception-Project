@@ -69,7 +69,6 @@ def compute_normal_histograms(normal_cloud):
     hist_features = np.concatenate((x_hist[0], y_hist[0], z_hist[0])).astype(np.float64)
     norm_features = hist_features / np.sum(hist_features)
 
-    # Generate random features for demo mode.  
     # Replace normed_features with your feature vector
     normed_features = norm_features
 
