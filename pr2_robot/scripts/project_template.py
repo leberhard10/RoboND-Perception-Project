@@ -215,7 +215,7 @@ def pr2_mover(detected_objects):
     for object in detected_objects:
         labels.append(object.label)
         points_arr = ros_to_pcl(object.cloud).to_array()
-        centroids.append(np.mean(points_arr, axis=0)[:3])
+        centroids.append((np.mean(points_arr, axis=0)[:3]).tolist())
         
     rospy.loginfo('Detected Object List: {}'.format(labels))
 
@@ -283,7 +283,9 @@ def pr2_mover(detected_objects):
             print "Service call failed: %s"%e
 
     # TODO: Output your request parameters into output yaml file
-    send_to_yaml("output_"+test_scene_num+".yaml", dict_list)
+    output_filename = "output_{}.yaml".format(test_scene_num.data)
+    rospy.loginfo('Output to: {}'.format(output_filename))
+    send_to_yaml(output_filename, dict_list)
 
 
 
