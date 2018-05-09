@@ -24,9 +24,14 @@ if __name__ == '__main__':
     rospy.init_node('capture_node')
 
     models = [\
+       'sticky_notes',
+       'book',
+       'snacks',
        'biscuits',
-       'soap',
+       'eraser',
        'soap2',
+       'soap',
+       'glue',
 ]
 
     # Disable gravity and delete the ground plane
@@ -40,7 +45,7 @@ if __name__ == '__main__':
             # make five attempts to get a valid a point cloud then give up
             sample_was_good = False
             try_count = 0
-            while not sample_was_good and try_count < 8:
+            while not sample_was_good and try_count < 10:
                 sample_cloud = capture_sample()
                 sample_cloud_arr = ros_to_pcl(sample_cloud).to_array()
 
@@ -52,6 +57,7 @@ if __name__ == '__main__':
                     sample_was_good = True
 
             # Extract histogram features
+            print("Model Name {}".format(model_name))
             chists = compute_color_histograms(sample_cloud, using_hsv=True)
             normals = get_normals(sample_cloud)
             nhists = compute_normal_histograms(normals)
