@@ -98,12 +98,36 @@ Despite this, the biscuits are still labeld as soap and the bins are also labele
 
 ![labels_2](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_2.PNG)
 
+After the YAML file output was added in, the object recognition was revisited to fix the buiscuits and the bins being improperly detected.
+
+![labels_3](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_3.PNG)
+
+To start, the list of object features was expanded to the full list. Otherwise, new model.sav files would need to be generated for each output file. The first round of training with the parameters from list 1, resulted in an accuracy score of 0.70. A second run resulted in 0.775.
+
+![accuracy_3](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/classifier_accuracy_3.PNG)
+
+Out of curiosity, world 3 was run with this and resulted in the following labels.
+
+![labels_4](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_4.PNG)
+
+The new training data with world 1, did succed in recognizing biscuits, but the soap was labeled the same.
+
+![labels_5](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_5.PNG)
+
+Afer several iterations attempting to figure out why the training data accuracy was between .7 to 1.0 and the labels were still invalid. There was suspicion back during the exercises that the normal histogram calculations may not be correct (especially without a lesson that tested the code). After several iteration, it appward the max and min ranges needed to be consistent. The values were polled and new min/max values of -1.0 to 1.0 were added. After the 32 bin size resulted in no change, the number was decreased to 10. After the frustration of very little improvement, it was decided to attempt taking the 0.7 accuracy and test the labels.
+
+![accuracy_5](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/classifier_accuracy_5.PNG)
+
+For the first time, all of the objects (excluding the bins) were accuratly labeled for world 1.
+
+![labels_5](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_5.PNG)
+
 
 ### Pick and Place Setup
 
 #### 1. For all three tabletop setups (`test*.world`), perform object recognition, then read in respective pick list (`pick_list_*.yaml`). Next construct the messages that would comprise a valid `PickPlace` request output them to `.yaml` format.
 
-Even though biscuits are being detected as soap, the decision ws to keep going with the remaining requirements and fix the object recognition after adding in the yaml file export. On the first test run without runtime errors, soap 2 was accurately detected and grabbed by the correct arm. 
+Even though biscuits are being detected as soap, the decision ws to keep going with the remaining requirements and fix the object recognition after adding in the yaml file export. On the first test run without runtime errors, soap 2 was accurately detected and grabbed by the correct arm. It was also noticed that soap2 was supposed to be selected last.
 
 ![yaml_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/yaml_output_1.PNG)
 
