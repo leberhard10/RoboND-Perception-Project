@@ -59,10 +59,9 @@ if __name__ == '__main__':
             # Extract histogram features
             print("Model Name {}".format(model_name))
             chists = compute_color_histograms(sample_cloud, using_hsv=True)
-            #normals = get_normals(sample_cloud)
-            #nhists = compute_normal_histograms(normals)
-            #feature = np.concatenate((chists, nhists))
-            feature = chists
+            normals = get_normals(sample_cloud)
+            nhists = compute_normal_histograms(normals)
+            feature = np.concatenate((chists, nhists))
             labeled_features.append([feature, model_name])
 
         delete_model()
