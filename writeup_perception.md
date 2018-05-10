@@ -134,6 +134,19 @@ Continuing on to world 2 and world 3, the results were not a passing score. It a
 
 ![labels_8](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_8.PNG)
 
+The focus returned to the histogram normals. THe valid point cloud checks were restored to the last best fit value and the range of the histograms were extended by 0.1 and resulted in a training set accuracy score of 0.7. All items were accuratly detected in world 1.
+
+![labels_10](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_10.PNG)
+
+This resulted in 4 out of 5 samples for world 2.
+
+![labels_9](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_9.PNG)
+
+6 out of 8 samples were accuratly detected for world 3.
+
+![labels_11](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_11.PNG)
+
+
 
 ### Pick and Place Setup
 
@@ -143,7 +156,11 @@ Even though biscuits are being detected as soap, the decision ws to keep going w
 
 ![yaml_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/yaml_output_1.PNG)
 
-Spend some time at the end to discuss your code, what techniques you used, what worked and why, where the implementation might fail and how you might improve it if you were going to pursue this project further.  
 
+### Conclusion
+
+The code utilized the work developed from the exercises and the debugging of the system involved testing each step of the object recognition pipeline. As each section worked as expected, the next step was added back in. When the labels failed to accuratly detect the object, the exercise 3 components were evaluated as mentioned above to determine the current code values.
+
+So far objects that are similar in size like the snacks and the books will be mistaken for each other and the snacks go undetected. Since the normal histograms were the last component, the normal histogram bins as well as the hsv bin numbers could be altered to improve the accuracy. THe next stage would be to obtain the 100% accurate labels in the tabletop challenge world.
 
 
