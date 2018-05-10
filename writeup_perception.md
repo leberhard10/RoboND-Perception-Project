@@ -122,6 +122,18 @@ For the first time, all of the objects (excluding the bins) were accuratly label
 
 ![labels_5](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_5.PNG)
 
+THis wasn't enough for world 2 to pass. it mislabeled 3 out of 5 items. More parameters in the histograms were updated to obtain an accuracy score of 0.875. 
+
+![accuracy_5](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/classifier_accuracy_5.PNG)
+
+Continuing on to world 2 and world 3, the results were not a passing score. It also appeared that as the confusion matrix became more accurate, the object detection became worse. The normal histogram calculations were removed to see if this was part of the problem. Turns out that a passong score for world 3 could be obtained with just the hsv histograms. 
+
+![labels_7](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_7.PNG)
+
+100% accuracy for world 2
+
+![labels_8](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/object_labels_8.PNG)
+
 
 ### Pick and Place Setup
 
