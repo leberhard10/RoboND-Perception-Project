@@ -156,6 +156,8 @@ Even though biscuits are being detected as soap, the decision ws to keep going w
 
 ![yaml_1](https://github.com/leberhard10/RoboND-Perception-Project/blob/master/images/yaml_output_1.PNG)
 
+During the final fixes of the object labeling, the additional output files were generated and copied over to the perception project.
+
 
 ### Conclusion
 
