@@ -157,9 +157,10 @@ def pcl_callback(pcl_msg):
         # Extract histogram features
         # TODO: complete this step just as is covered in capture_features.py
         chists = compute_color_histograms(sample_cloud, using_hsv=True)
-        normals = get_normals(sample_cloud)
-        nhists = compute_normal_histograms(normals)
-        feature = np.concatenate((chists, nhists))
+        #normals = get_normals(sample_cloud)
+        #nhists = compute_normal_histograms(normals)
+        #feature = np.concatenate((chists, nhists))
+        feature = chists
 
         # Make the prediction, retrieve the label for the result
         # and add it to detected_objects_labels list
@@ -221,7 +222,7 @@ def pr2_mover(detected_objects):
     # TODO: Loop through the pick list
     for index in range(0, len(object_list_param)):
 
-        test_scene_num.data = 1
+        test_scene_num.data = 3
         
         object_name.data = object_list_param[index]['name']
 
@@ -275,6 +276,7 @@ def pr2_mover(detected_objects):
 
     # TODO: Output your request parameters into output yaml file
     output_filename = "output_{}.yaml".format(test_scene_num.data)
+    rospy.loginfo('Writing to yaml file: {}'.format(output_filename))
     send_to_yaml(output_filename, dict_list)
 
 
