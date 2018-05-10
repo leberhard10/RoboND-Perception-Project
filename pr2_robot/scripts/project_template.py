@@ -222,7 +222,7 @@ def pr2_mover(detected_objects):
     # TODO: Loop through the pick list
     for index in range(0, len(object_list_param)):
 
-        test_scene_num.data = 3
+        test_scene_num.data = 2
         
         object_name.data = object_list_param[index]['name']
 
